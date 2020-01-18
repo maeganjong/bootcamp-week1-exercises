@@ -6,6 +6,11 @@ class Relation extends BaseModel {
     return 'relations'
   }
 
+  getChild() {
+    const User = require('./User')
+    return User.query().findById(this.childId)
+  }
+
   static get relationMappings() {
     const User = require('./User')
 
